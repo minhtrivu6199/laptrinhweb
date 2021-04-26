@@ -32,15 +32,19 @@
                                 
                 <div class="white-panel">
                     <form id="login-form" class="login-show" action="#" method="get">
+                        <input type="hidden" name="action" value="login">
                         <label for="login-form">Đăng Nhập</label>
-                        <input type="text" placeholder="Email">
-                        <input type="password" placeholder="Password">
+                        <input id="login-email" name="email" type="text" placeholder="Email">
+                        <input id="login-password" name="password" type="password" placeholder="Password">
                         <button type="submit" value="login">Đăng Nhập</button> 
                     </form>
                     <form id="register-form" class="register-show" action="#" method="get">
+                        <input type="hidden" name="action" value="register">
                         <label for="register-form">Đăng Ký</label>
-                        <input type="text" placeholder="Email">
-                        <input type="password" placeholder="Password">
+                        <input id="fullname" name="fullname" type="text" placeholder="Họ Và Tên">
+                        <input id="birthday" name="birthday" type="date" placeholder="Ngày Sinh">
+                        <input id="register-email" name="email" type="text" placeholder="Email">
+                        <input id="register-password" name="password" type="password" placeholder="Password">
                         <input type="password" placeholder="Confirm Password">
                         <button type="submit" value="register">Đăng Ký</button>
                     </form>

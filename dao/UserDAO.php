@@ -1,14 +1,14 @@
 <?php
 
-include_once './dbconnect.php';
+include_once 'dbconnect.php';
 
-include_once './models/UserModel.php'
+include_once './models/UserModel.php';
 
 
 
 class UserDAO{
 
-    public  static function queryAll($sql){
+    private  static function queryAll($sql){
         global $conn;
     
         $result = $conn->query($sql);
@@ -48,7 +48,7 @@ class UserDAO{
     }
 
     public  static function findAllLimit($limit, $offset){
-        $sql = "SELECT * FROM NGUOI_DUNG limit $offset, $limit "
+        $sql = "SELECT * FROM NGUOI_DUNG limit $offset, $limit";
         return UserDAO::queryAll($sql);
     }
 
@@ -69,15 +69,8 @@ class UserDAO{
         return UserDAO::queryAll($sql);
     }
 
-    public  static function insertUser($id, $mail, $name, $bdate, $pass, $role){
-
-        $sql = "INSERT TO NGUOI_DUNG(ND_Id, ND_Email, ND_Ho_Ten, ND_Ngay_Sinh, ND_Password, ND_Vai_Tro) VALUES ('$id', '$mail', '$name', '$bdate', '$pass', '$role') "
-        
-        return UserDAO::queryAll($sql);
-    }
-
     public static function findByName($name){
-        $sql = "SELECT * FROM NGUOI_DUNG where ND_Ho_Ten = '$name'";
+        $sql = "SELECT * FROM NGUOI_DUNG where ND_Ho_Ten LIKE '%$name%'";
         return UserDAO::queryAll($sql);
     }
     
@@ -86,5 +79,23 @@ class UserDAO{
         $sql = "DELETE FROM NGUOI_DUNG where ND_Id = '$id'";
     
         return UserDAO::queryAll($sql);
+    }
+
+    public static function findByEmailAndPassword($email, $password){
+        $sql = "SELECT * FROM NGUOI_DUNG where ND_EMAIL = '$email' AND ND_PASSWORD = '$password'";
+        return UserDAO::queryTop($sql);
+    }
+
+    public static function save($user){
+        global $conn;
+        if ($user->id ==  null){
+            $sql = "INSERT INTO NGUOI_DUNG(ND_Email, ND_Ho_Ten, ND_Ngay_Sinh, ND_Password, ND_Vai_Tro) 
+            VALUES ('$user->$mail', '$user->$name', '$user->$birthday', '$user->$pass', 'user')";
+
+            $result = $conn->query($sql);
+            
+            return $result;
+        }
+        return FALSE;
     }
 }

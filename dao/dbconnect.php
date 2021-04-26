@@ -1,7 +1,7 @@
 <?php
 $servername ="localhost";
-$username ="vmtri";
-$password ="12345"
+$username ="root";
+$password ="root"
 $dbname ="mydb";
 
 // Create connection

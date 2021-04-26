@@ -5,7 +5,7 @@ include_once './dbconnect.php'
 include_once './models/InvoiceModel.php'
 
 class InvoiceDAO{
-    public  static function queryAll($sql){
+    private  static function queryAll($sql){
         global $conn;
 
         $result = $conn->query($sql);

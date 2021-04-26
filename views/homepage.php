@@ -13,8 +13,8 @@
         <link href="../css/homepage.css" rel="stylesheet">
     </head>
     <body>
-      <?php include './common/header.php';?>
-      <?php include './common/carousel.php';?>
+      <?php include './views/common/header.php';?>
+      <?php include './views/common/carousel.php';?>
       
 
       <div class="container">
@@ -389,7 +389,7 @@
           </div>
       </div>
 
-      <?php include './common/footer.php'; ?>
+      <?php include './views/common/footer.php'; ?>
          
         
 

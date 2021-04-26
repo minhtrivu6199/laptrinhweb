@@ -6,7 +6,7 @@ include_once './models/ProductModel.php'
 
 class ProductDAO{
 
-    public  static function queryAll($sql){
+    private  static function queryAll($sql){
         global $conn;
 
         $result = $conn->query($sql);

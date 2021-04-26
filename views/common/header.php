@@ -29,7 +29,7 @@
                     </div>
                 </li>
                 <li class="nav-item active">
-                    <a class="links btn btn-dark button mr-3" href="./login.php">Tài Khoản</a>
+                    <a class="links btn btn-dark button mr-3" href="../login.php">Tài Khoản</a>
                 </li>
                 <li class="nav-item active">
                     <a class="cart-button d-flex justify-content-center align-content-center" href="./cart.php"> 
