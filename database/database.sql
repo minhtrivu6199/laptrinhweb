@@ -103,7 +103,7 @@ create table NGUOI_DUNG
 create table SAN_PHAM
 (
    SP_ID                bigint not null AUTO_INCREMENT,
-   CTSP_ID              varchar(256) not null,
+   CTSP_ID              bigint not null,
    TH_ID                bigint not null,
    SP_TEN               varchar(256) not null,
    SP_GIA               float(13,2),

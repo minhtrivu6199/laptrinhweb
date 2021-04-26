@@ -19,7 +19,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'login'){
 }
 
 if (isset($_POST['action']) && $_POST['action'] == 'register'){
-    $user = new UserModel();
+    $user = new UserModel(null);
     $user->email = $_POST['email'];
     $user->password = $_POST['password'];
     $user->fullname = $_POST['fullname'];

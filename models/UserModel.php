@@ -8,6 +8,7 @@ class UserModel{
     public $role;
 
     function __construct($data){
+        if($data == null) return;
         $this->id = $data['ND_ID'];
         $this->email = $data['ND_EMAIL']; 
         $this->fullname = $data['ND_HO_TEN'];

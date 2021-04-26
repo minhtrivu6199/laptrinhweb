@@ -12,7 +12,7 @@
         <link href="../css/login.css" rel="stylesheet">
     </head>
     <body>
-        <?php include './common/header.php';?> 
+        <?php include './views/common/header.php';?> 
         
         <div class="main">
             <div class="login-reg-panel">
@@ -59,7 +59,7 @@
         
 
 
-        <?php include './common/footer.php'; ?>
+        <?php include './views/common/footer.php'; ?>
 
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
