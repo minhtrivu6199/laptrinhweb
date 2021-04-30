@@ -32,7 +32,7 @@
                     <a class="links btn btn-dark button mr-3" href="../login.php">Tài Khoản</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="cart-button d-flex justify-content-center align-content-center" href="./cart.php"> 
+                    <a class="cart-button d-flex justify-content-center align-content-center" href="/view-cart.php"> 
                         <i class="fas fa-shopping-cart cart"></i> 
                         <span class="item-number d-inline">3</span> 
                     </a> 
@@ -64,7 +64,7 @@
                 <div class="col-md-4">
                   <ul class="nav flex-column">
                   <li class="nav-item">
-                    <a class="nav-link active" href="./product_list.php">Laptop</a>
+                    <a class="nav-link active" href="./product_grid.php">Laptop</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">ASUS</a>

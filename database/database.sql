@@ -25,7 +25,7 @@ drop table if exists THUONG_HIEU;
 /*==============================================================*/
 create table CHI_TIET_HOA_DON
 (
-   HD_ID                bigint not null AUTO_INCREMENT,
+   HD_ID                bigint not null,
    SP_ID                bigint not null,
    CTHD_SO_LUONG        int,
    CTHD_GIA             float(13,2),
@@ -37,7 +37,7 @@ create table CHI_TIET_HOA_DON
 /*==============================================================*/
 create table CHI_TIET_NHAP
 (
-   ND_ID                bigint not null AUTO_INCREMENT,
+   ND_ID                bigint not null,
    SP_ID                bigint not null,
    CTN_SO_LUONG         int,
    CTN_GIA              float(13,2),
@@ -45,16 +45,16 @@ create table CHI_TIET_NHAP
    primary key (ND_ID, SP_ID)
 );
 
-/*==============================================================*/
-/* Table: CHI_TIET_SAN_PHAM                                     */
-/*==============================================================*/
-create table CHI_TIET_SAN_PHAM
-(
-   CTSP_ID              bigint not null,
-   CTSP_KEY             varchar(256),
-   CTSP_VALUE           varchar(256),
-   primary key (CTSP_ID)
-);
+-- /*==============================================================*/
+-- /* Table: CHI_TIET_SAN_PHAM                                     */
+-- /*==============================================================*/
+-- create table CHI_TIET_SAN_PHAM
+-- (
+--    CTSP_ID              bigint not null AUTO_INCREMENT,
+--    CTSP_KEY             varchar(256),
+--    CTSP_VALUE           varchar(256),
+--    primary key (CTSP_ID)
+-- );
 
 /*==============================================================*/
 /* Table: HINH_ANH                                              */
@@ -145,6 +145,6 @@ alter table HOA_DON add constraint FK_RELATIONSHIP_4 foreign key (ND_ID)
 alter table SAN_PHAM add constraint FK_RELATIONSHIP_1 foreign key (TH_ID)
       references THUONG_HIEU (TH_ID) on delete restrict on update restrict;
 
-alter table SAN_PHAM add constraint FK_RELATIONSHIP_2 foreign key (CTSP_ID)
-      references CHI_TIET_SAN_PHAM (CTSP_ID) on delete restrict on update restrict;
+-- alter table SAN_PHAM add constraint FK_RELATIONSHIP_2 foreign key (CTSP_ID)
+--       references CHI_TIET_SAN_PHAM (CTSP_ID) on delete restrict on update restrict;
 

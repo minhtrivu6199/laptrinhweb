@@ -12,36 +12,24 @@
     <link href="../css/product_list.css" rel="stylesheet">
 </head>
 <body>
-    <?php include './common/header.php';?>
+    <?php include './views/common/header.php';?>
     <div class="container-fluid"> <!-- container -->
         <div class="row"> <!-- row -->
             <div class="col-md-3 left pt-5">
                 <h3>Thương hiệu:</h3>
                 <ul class="list-group mb-2 ml-2">
-                    <li class="list-group-item">
+                    <?php
+                        foreach ($ds_thuonghieu as $thuonghieu) {
+                            echo "<li class='list-group-item'>
+                            <input type='checkbox' name='thuonghieu' value='$thuonghieu->code' id='$thuonghieu->id'>
+                            <label for='$thuonghieu->id'>$thuonghieu->name</label>
+                        </li>";
+                        } 
+                    ?>
+                    <!-- <li class="list-group-item">
                         <input type="checkbox" name="a" id="asus">
                         <label for="asus">ASUS</label>
-                    </li>
-                    <li class="list-group-item">
-                        <input type="checkbox" name="a" id="acer">
-                        <label for="acer">ACER</label>
-                    </li>
-                    <li class="list-group-item">
-                        <input type="checkbox" name="a" id="dell">
-                        <label for="dell">DELL</label>
-                    </li>
-                    <li class="list-group-item">
-                        <input type="checkbox" name="a" id="hp">
-                        <label for="hp">HP</label>
-                    </li>
-                    <li class="list-group-item">
-                        <input type="checkbox" name="a" id="lenovo">
-                        <label for="lenovo">LENOVO</label>
-                    </li>
-                    <li class="list-group-item">
-                        <input type="checkbox" name="a" id="msi">
-                        <label for="msi">MSI</label>
-                    </li>
+                    </li> -->
                 </ul>
                 <h3>Sắp xếp theo:</h3>
                 <ul class="list-group mb-2 ml-2">
@@ -58,7 +46,28 @@
             <div class="col-md-9 right container pt-5"> <!-- col-md-9 -->
                 <h3 class="h3">Danh Sách Sản Phẩm</h3>
                 <div class="row mb-3"> <!-- row mb-3 -->
-                    <div class="col-md-3 col-sm-6">
+                        
+                    <?php
+                        foreach ($ds_sanpham as $sp){
+                            echo "<div class='col-md-3 col-sm-6'>
+                            <div class='product-grid'>
+                                <div class='product-image'>
+                                    <a href='#'>
+                                        <img class='pic-1' src='../assets/img/acer1.jpg'>
+                                        <img class='pic-2' src='../assets/img/acer2.jpg'>
+                                    </a>
+                                    <a href='#' class='fa fa-search product-full-view'></a>
+                                </div>
+                                <div class='product-content'>
+                                    <h3 class='title'><a href='#'>$sp->name</a></h3>
+                                    <div class='price'>$sp->price</div>
+                                    <a class='add-to-cart' href=''>Đưa Vào Giỏ</a>
+                                </div>
+                            </div>
+                        </div>";
+                        } 
+                    ?>
+                    <!-- <div class="col-md-3 col-sm-6">
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="#">
@@ -121,199 +130,8 @@
                                 <a class="add-to-cart" href="">Đưa Vào Giỏ</a>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product-grid">
-                            <div class="product-image">
-                                <a href="#">
-                                    <img class="pic-1" src="../assets/img/asus1.jpg">
-                                    <img class="pic-2" src="../assets/img/asus2.jpg">
-                                </a>
-                                <a href="#" class="fa fa-search product-full-view"></a>
-                            </div>
-                            <div class="product-content">
-                                <h3 class="title"><a href="#">LAPTOP ASUS</a></h3>
-                                <div class="price"> 15.000.000</div>
-                                <a class="add-to-cart" href="">Đưa Vào Giỏ</a>
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product-grid">
-                            <div class="product-image">
-                                <a href="#">
-                                    <img class="pic-1" src="../assets/img/acer1.jpg">
-                                    <img class="pic-2" src="../assets/img/acer2.jpg">
-                                </a>
-                                <a href="#" class="fa fa-search product-full-view"></a>
-                            </div>
-                            <div class="product-content">
-                                <h3 class="title"><a href="#">LAPTOP ACER</a></h3>
-                                <div class="price"> 13.000.000 </div>
-                                <a class="add-to-cart" href="">Đưa Vào Giỏ</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product-grid">
-                            <div class="product-image">
-                                <a href="#">
-                                    <img class="pic-1" src="../assets/img/dell1.jpg">
-                                    <img class="pic-2" src="../assets/img/dell2.jpg">
-                                </a>
-                                <a href="#" class="fa fa-search product-full-view"></a>
-                            </div>
-                            <div class="product-content">
-                                <h3 class="title"><a href="#">LAPTOP DELL</a></h3>
-                                <div class="price">18.000.000</div>
-                                <a class="add-to-cart" href="">Đưa Vào Giỏ</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product-grid">
-                            <div class="product-image">
-                                <a href="#">
-                                    <img class="pic-1" src="../assets/img/lenovo1.jpg">
-                                    <img class="pic-2" src="../assets/img/lenovo2.jpg">
-                                </a>
-                                <a href="#" class="fa fa-search product-full-view"></a>
-                            </div>
-                            <div class="product-content">
-                                <h3 class="title"><a href="#">LAPTOP LENOVO</a></h3>
-                                <div class="price">11.000.000</div>
-                                <a class="add-to-cart" href="">Đưa Vào Giỏ</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product-grid">
-                            <div class="product-image">
-                                <a href="#">
-                                    <img class="pic-1" src="../assets/img/asus1.jpg">
-                                    <img class="pic-2" src="../assets/img/asus2.jpg">
-                                </a>
-                                <a href="#" class="fa fa-search product-full-view"></a>
-                            </div>
-                            <div class="product-content">
-                                <h3 class="title"><a href="#">LAPTOP ASUS</a></h3>
-                                <div class="price"> 15.000.000</div>
-                                <a class="add-to-cart" href="">Đưa Vào Giỏ</a>
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product-grid">
-                            <div class="product-image">
-                                <a href="#">
-                                    <img class="pic-1" src="../assets/img/acer1.jpg">
-                                    <img class="pic-2" src="../assets/img/acer2.jpg">
-                                </a>
-                                <a href="#" class="fa fa-search product-full-view"></a>
-                            </div>
-                            <div class="product-content">
-                                <h3 class="title"><a href="#">LAPTOP ACER</a></h3>
-                                <div class="price"> 13.000.000 </div>
-                                <a class="add-to-cart" href="">Đưa Vào Giỏ</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product-grid">
-                            <div class="product-image">
-                                <a href="#">
-                                    <img class="pic-1" src="../assets/img/dell1.jpg">
-                                    <img class="pic-2" src="../assets/img/dell2.jpg">
-                                </a>
-                                <a href="#" class="fa fa-search product-full-view"></a>
-                            </div>
-                            <div class="product-content">
-                                <h3 class="title"><a href="#">LAPTOP DELL</a></h3>
-                                <div class="price">18.000.000</div>
-                                <a class="add-to-cart" href="">Đưa Vào Giỏ</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product-grid">
-                            <div class="product-image">
-                                <a href="#">
-                                    <img class="pic-1" src="../assets/img/lenovo1.jpg">
-                                    <img class="pic-2" src="../assets/img/lenovo2.jpg">
-                                </a>
-                                <a href="#" class="fa fa-search product-full-view"></a>
-                            </div>
-                            <div class="product-content">
-                                <h3 class="title"><a href="#">LAPTOP LENOVO</a></h3>
-                                <div class="price">11.000.000</div>
-                                <a class="add-to-cart" href="">Đưa Vào Giỏ</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product-grid">
-                            <div class="product-image">
-                                <a href="#">
-                                    <img class="pic-1" src="../assets/img/asus1.jpg">
-                                    <img class="pic-2" src="../assets/img/asus2.jpg">
-                                </a>
-                                <a href="#" class="fa fa-search product-full-view"></a>
-                            </div>
-                            <div class="product-content">
-                                <h3 class="title"><a href="#">LAPTOP ASUS</a></h3>
-                                <div class="price"> 15.000.000</div>
-                                <a class="add-to-cart" href="">Đưa Vào Giỏ</a>
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product-grid">
-                            <div class="product-image">
-                                <a href="#">
-                                    <img class="pic-1" src="../assets/img/acer1.jpg">
-                                    <img class="pic-2" src="../assets/img/acer2.jpg">
-                                </a>
-                                <a href="#" class="fa fa-search product-full-view"></a>
-                            </div>
-                            <div class="product-content">
-                                <h3 class="title"><a href="#">LAPTOP ACER</a></h3>
-                                <div class="price"> 13.000.000 </div>
-                                <a class="add-to-cart" href="">Đưa Vào Giỏ</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product-grid">
-                            <div class="product-image">
-                                <a href="#">
-                                    <img class="pic-1" src="../assets/img/dell1.jpg">
-                                    <img class="pic-2" src="../assets/img/dell2.jpg">
-                                </a>
-                                <a href="#" class="fa fa-search product-full-view"></a>
-                            </div>
-                            <div class="product-content">
-                                <h3 class="title"><a href="#">LAPTOP DELL</a></h3>
-                                <div class="price">18.000.000</div>
-                                <a class="add-to-cart" href="">Đưa Vào Giỏ</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product-grid">
-                            <div class="product-image">
-                                <a href="#">
-                                    <img class="pic-1" src="../assets/img/lenovo1.jpg">
-                                    <img class="pic-2" src="../assets/img/lenovo2.jpg">
-                                </a>
-                                <a href="#" class="fa fa-search product-full-view"></a>
-                            </div>
-                            <div class="product-content">
-                                <h3 class="title"><a href="#">LAPTOP LENOVO</a></h3>
-                                <div class="price">11.000.000</div>
-                                <a class="add-to-cart" href="">Đưa Vào Giỏ</a>
-                            </div>
-                        </div>
-                    </div>
+                    </div> -->
+                    
                 </div> <!-- end row mb-3 -->
             </div> <!-- end col-md-9 -->
             
@@ -324,7 +142,7 @@
 
 
 
-    <?php include './common/footer.php'; ?>
+    <?php include dirname(__DIR__).'/views/common/footer.php'; ?>
 
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>

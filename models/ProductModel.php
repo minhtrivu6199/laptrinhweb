@@ -8,12 +8,12 @@ class ProductModel {
     public $size;
 
     function __construct($data){
-        $this->id = $data['SP_Id'];
-        $this->name = $data['SP_Ten']; 
-        $this->price = $data['SP_Gia'];
-        $this->status = $data['SP_Trang_Thai'];
-        $this->description = $data['SP_Mo_Ta'];
-        $this->size = $data['SP_Size'];
+        $this->id = $data['SP_ID'];
+        $this->name = $data['SP_TEN']; 
+        $this->price = $data['SP_GIA'];
+        $this->status = $data['SP_TRANG_THAI'];
+        $this->description = $data['SP_MO_TA'];
+        $this->size = $data['SP_SIZE'];
 
     }
 }

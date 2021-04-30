@@ -1,8 +1,10 @@
 <?php
 
-include_once './dbconnect.php'
+include_once './dbconnect.php';
 
-include_once './models/InvoiceModel.php'
+include_once dirname(__DIR__).'/models/InvoiceModel.php';
+include_once dirname(__DIR__).'/models/UserModel.php';
+include_once dirname(__DIR__).'/models/PurchaseDetailModel.php';
 
 class InvoiceDAO{
     private  static function queryAll($sql){
@@ -10,7 +12,7 @@ class InvoiceDAO{
 
         $result = $conn->query($sql);
 
-        $listProduct = array();
+        $listInvoice = array();
 
         while ($row = $conn->fetch_assoc()){
             array_push($listInvoice, new InvoiceModel($row));
@@ -70,6 +72,22 @@ class InvoiceDAO{
         $sql = "SELECT * FROM HOA_DON where ND_Thoi_Gian_Mo='$year-$month-$day'";
         return InvoiceDAO::queryAll($sql);
 
+    }
+
+    public  static function findNewestUncheckoutInvoice(){
+        $sql = "SELECT * FROM HOA_DON where HD_TRANG_THAI = 'new' ORDER BY HD_THOI_GIAN_MO DESC";
+        return InvoiceDAO::queryTop($sql);
+    }
+
+    public  static function createEmpty(){
+        global $conn;
+        $user = $_SESSION['user'];
+        $sql = "INSERT INTO HOA_DON(ND_ID, HD_THOI_GIAN_MO, HD_TRANG_THAI) values ($user->id, CURDATE(), 'new')";
+        $result = $conn->query($sql);
+        if ($result->num_rows() > 0){
+            $insertedId = $result->fetch_assoc();
+            return new InvoiceDAO::
+        }
     }
 
 

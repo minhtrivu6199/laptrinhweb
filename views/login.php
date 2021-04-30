@@ -31,14 +31,14 @@
                 </div>
                                 
                 <div class="white-panel">
-                    <form id="login-form" class="login-show" action="#" method="get">
+                    <form id="login-form" class="login-show" action="" method="POST">
                         <input type="hidden" name="action" value="login">
                         <label for="login-form">Đăng Nhập</label>
                         <input id="login-email" name="email" type="text" placeholder="Email">
                         <input id="login-password" name="password" type="password" placeholder="Password">
                         <button type="submit" value="login">Đăng Nhập</button> 
                     </form>
-                    <form id="register-form" class="register-show" action="#" method="get">
+                    <form id="register-form" class="register-show" action="" method="POST">
                         <input type="hidden" name="action" value="register">
                         <label for="register-form">Đăng Ký</label>
                         <input id="fullname" name="fullname" type="text" placeholder="Họ Và Tên">

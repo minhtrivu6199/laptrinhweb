@@ -1,6 +1,6 @@
 <?php
 
-include_once './dao/UserDAO.php';
+include_once dirname(__DIR__).'/dao/UserDAO.php';
 
 class UserService{
 

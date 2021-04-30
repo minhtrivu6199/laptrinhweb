@@ -7,10 +7,11 @@
     <title>Giỏ Hàng</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="../css/general.css" rel="stylesheet">
 </head>
 <body>
-    <?php include './common/header.php';?>
+    <?php include './views/common/header.php';?>
     <section class="pt-5 pb-5">
   <div class="container">
     <div class="row w-100">
@@ -136,7 +137,7 @@
 
 
 
-    <?php include './common/footer.php'; ?>
+    <?php include './views/common/footer.php'; ?>
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

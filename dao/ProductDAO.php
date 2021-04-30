@@ -1,8 +1,8 @@
 <?php
 
-include_once './dbconnect.php';
+include_once 'dbconnect.php';
 
-include_once './models/ProductModel.php'
+include_once  dirname(__DIR__).'/models/ProductModel.php';
 
 class ProductDAO{
 
@@ -13,7 +13,7 @@ class ProductDAO{
 
         $listProduct = array();
 
-        while ($row = $conn->fetch_assoc()){
+        while ($row = $result->fetch_assoc()){
             array_push($listProduct, new ProductModel($row));
         }
 
@@ -46,7 +46,7 @@ class ProductDAO{
     }
 
     public  static function findAllLimit($limit, $offset){
-        $sql = "SELECT * FROM SAN_PHAM limit $offset, $limit "
+        $sql = "SELECT * FROM SAN_PHAM limit $offset, $limit ";
         return ProductDAO::queryAll($sql);
     }
 
@@ -69,13 +69,13 @@ class ProductDAO{
 
     public  static function insertProduct($id, $name, $price, $status, $descripsion, $size){
 
-        $sql = "INSERT TO SAN_PHAM(SP_Id, SP_Ten, SP_Gia, SP_Trang_Thai, SP_Mo_Ta, SP_Size) VALUES ('$id', '$name', '$price', '$status', '$descripsion', '$size') "
+        $sql = "INSERT TO SAN_PHAM(SP_Id, SP_Ten, SP_Gia, SP_Trang_Thai, SP_Mo_Ta, SP_Size) VALUES ('$id', '$name', '$price', '$status', '$descripsion', '$size') ";
         
         return ProductDAO::queryAll($sql);
     }
 
-    public static function findByName($name){
-        $sql = "SELECT * FROM SAN_PHAM where SP_Ten = '$name'";
+    public static function findQueryString($queryString){
+        $sql = "SELECT * FROM SAN_PHAM WHERE SP_Ten like '%$queryString%'";
         return ProductDAO::queryAll($sql);
     }
 
