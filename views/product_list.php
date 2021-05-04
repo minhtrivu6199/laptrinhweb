@@ -49,12 +49,21 @@
                         
                     <?php
                         foreach ($ds_sanpham as $sp){
+                            $images = $sp->images;
+                            $imgSrc = '../assets/img/acer1.jpg';
+                            $imgSrc1 = '../assets/img/acer2.jpg';
+                            if (count($images) > 0) {
+                                $imgSrc = $images[0];
+                            }
+                            if (count($images) > 1){
+                                $imgSrc1 = $images[1];
+                            }
                             echo "<div class='col-md-3 col-sm-6'>
                             <div class='product-grid'>
                                 <div class='product-image'>
                                     <a href='#'>
-                                        <img class='pic-1' src='../assets/img/acer1.jpg'>
-                                        <img class='pic-2' src='../assets/img/acer2.jpg'>
+                                        <img class='pic-1' src='$imgSrc'>
+                                        <img class='pic-2' src='$imgSrc1'>
                                     </a>
                                     <a href='#' class='fa fa-search product-full-view'></a>
                                 </div>

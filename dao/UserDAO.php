@@ -89,7 +89,7 @@ class UserDAO{
     public static function save($user){
         global $conn;
         if ($user->id ==  null){
-            $sql = "INSERT INTO NGUOI_DUNG(ND_EMAIL, ND_HO_TEN, ND_NGAY_SINH, ND_PASSWORD, ND_VAI_TRO) VALUES ('$user->$email', '$user->$fullname', '$user->$birthday', '$user->$password', 'user')";
+            $sql = "INSERT INTO NGUOI_DUNG(ND_EMAIL, ND_HO_TEN, ND_NGAY_SINH, ND_PASSWORD, ND_VAI_TRO) VALUES ('$user->email', '$user->fullname', '$user->birthday', '$user->password', 'user')";
 
             $result = $conn->query($sql);
             

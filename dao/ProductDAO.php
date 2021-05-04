@@ -14,7 +14,16 @@ class ProductDAO{
         $listProduct = array();
 
         while ($row = $result->fetch_assoc()){
-            array_push($listProduct, new ProductModel($row));
+            $product = new ProductModel($row);
+            $sql = "SELECT * FROM hinh_anh WHERE SP_ID = $product->id";
+            $images_result = $conn->query($sql);
+            $images = array();
+            while ($image_row = $images_result->fetch_assoc()) {
+                $imageLink = $image_row['HA_LINK'];
+                array_push($images, $imageLink);
+            }
+            $product->images = $images;
+            array_push($listProduct, $product);
         }
 
         return $listProduct;

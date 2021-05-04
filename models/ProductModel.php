@@ -14,6 +14,5 @@ class ProductModel {
         $this->status = $data['SP_TRANG_THAI'];
         $this->description = $data['SP_MO_TA'];
         $this->size = $data['SP_SIZE'];
-
     }
 }
