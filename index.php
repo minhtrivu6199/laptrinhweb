@@ -1,10 +1,8 @@
 <?php
 
-session_start();
+include_once './models/UserModel.php';
 
-if (isset($_SESSION['user'])){
-	$user = $_SESSION['user'];
-}
+include './prehandle/getCurrentUser.php';
 
 	// if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
 	// 	$uri = 'https://';
@@ -15,6 +13,5 @@ if (isset($_SESSION['user'])){
 	// header('Location: '.$uri.'/views/homepage.php');
 	// exit;
 
-
-	include './views/homepage.php';
+include './views/homepage.php';
 

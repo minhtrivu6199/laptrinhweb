@@ -5,13 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh Sách Sản Phẩm</title>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="../css/general.css" rel="stylesheet">
     <link href="../css/product_list.css" rel="stylesheet">
 </head>
 <body>
+    <div id="notificationContainer" class="notification">
+
+    </div>    
+    </div>
     <?php include './views/common/header.php';?>
     <div class="container-fluid"> <!-- container -->
         <div class="row"> <!-- row -->
@@ -45,7 +49,7 @@
             </div>
             <div class="col-md-9 right container pt-5"> <!-- col-md-9 -->
                 <h3 class="h3">Danh Sách Sản Phẩm</h3>
-                <div class="row mb-3"> <!-- row mb-3 -->
+                <div id="product-grid" class="row mb-3"> <!-- row mb-3 -->
                         
                     <?php
                         foreach ($ds_sanpham as $sp){
@@ -70,7 +74,7 @@
                                 <div class='product-content'>
                                     <h3 class='title'><a href='#'>$sp->name</a></h3>
                                     <div class='price'>$sp->price</div>
-                                    <a class='add-to-cart' href=''>Đưa Vào Giỏ</a>
+                                    <a productId='$sp->id' class='add-to-cart' href=''>Thêm Vào Giỏ</a>
                                 </div>
                             </div>
                         </div>";
@@ -154,8 +158,10 @@
     <?php include dirname(__DIR__).'/views/common/footer.php'; ?>
 
 
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="../script/common.js"></script>
+    <script src="../script/product_list.js"></script>
 </body>
 </html>

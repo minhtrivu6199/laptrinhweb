@@ -11,7 +11,11 @@ class ProductService{
         return ProductDAO::findById($id);
     }
 
-    public  static function searchProduct($key){
+    public  static function searchProducts($key){
         return ProductDAO::findQueryString($key);
+    }
+
+    public static function findImgById($id){
+        return ProductDAO::findImgById($id);
     }
 }

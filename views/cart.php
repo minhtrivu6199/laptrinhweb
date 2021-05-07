@@ -22,14 +22,48 @@
             <table id="shoppingCart" class="table table-condensed table-responsive">
                 <thead>
                     <tr>
-                        <th style="width:60%">Sản Phẩm</th>
-                        <th style="width:12%">Giá</th>
+                        <th style="width:50%">Sản Phẩm</th>
+                        <th style="width:10%">Giá</th>
                         <th style="width:10%">Số Lượng</th>
-                        <th style="width:16%"></th>
+                        <th style="width:20%">Thành Tiền</th>
+                        <th style="width:10%"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <?php
+                        if(isset($details)){
+                            foreach($details as $index => $detail){
+                                $product = $products[$index];
+                                $subtotal = $detail->amount * $detail->price;   
+                                echo "<tr>
+                                <td data-th='Product'>
+                                    <div class='row'>
+                                        <div class='col-md-3 text-left'>
+                                            <img src='../assets/img/product/asus1.jpg' alt='' class='img-fluid d-none d-md-block rounded mb-2 shadow '>
+                                        </div>
+                                        <div class='col-md-9 text-left mt-sm-2'>
+                                            <h4>$product->name</h4>
+                                            <p class='font-weight-light'>Brand &amp; Name</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td data-th='Price'>$detail->price đ</td>
+                                <td data-th='Quantity'>
+                                    <input productId='$detail->productId' type='number' class='form-control form-control-lg text-center amount-input' value='$detail->amount' min=1>
+                                </td>
+                                <td data-th='Subtotal' class='text-center'>$subtotal đ</td>
+                                <td class='actions' data-th=''>
+                                    <div class='text-right'>
+                                        <button productId='$detail->productId' class='btn btn-white border-secondary bg-white btn-md mb-2 btn-delete'>
+                                            <i class='fas fa-trash'></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>";
+                            }
+                        } 
+                    ?> 
+                    <!-- <tr>
                         <td data-th="Product">
                             <div class="row">
                                 <div class="col-md-3 text-left">
@@ -55,66 +89,13 @@
                                 </button>
                             </div>
                         </td>
-                    </tr>
-                    <tr>
-                        <td data-th="Product">
-                            <div class="row">
-                                <div class="col-md-3 text-left">
-                                    <img src="../assets/img/acer1.jpg" alt="" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
-                                </div>
-                                <div class="col-md-9 text-left mt-sm-2">
-                                    <h4>ACER1</h4>
-                                    <p class="font-weight-light">Brand &amp; Name</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td data-th="Price">13.000.000</td>
-                        <td data-th="Quantity">
-                            <input type="number" class="form-control form-control-lg text-center" value="1">
-                        </td>
-                        <td class="actions" data-th="">
-                            <div class="text-right">
-                                <button class="btn btn-white border-secondary bg-white btn-md mb-2">
-                                    <i class="fas fa-sync"></i>
-                                </button>
-                                <button class="btn btn-white border-secondary bg-white btn-md mb-2">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td data-th="Product">
-                            <div class="row">
-                                <div class="col-md-3 text-left">
-                                    <img src="../assets/img/lenovo1.jpg" alt="" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
-                                </div>
-                                <div class="col-md-9 text-left mt-sm-2">
-                                    <h4>LENOVO1</h4>
-                                    <p class="font-weight-light">Brand &amp; Name</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td data-th="Price">11.000.000</td>
-                        <td data-th="Quantity">
-                            <input type="number" class="form-control form-control-lg text-center" value="1">
-                        </td>
-                        <td class="actions" data-th="">
-                            <div class="text-right">
-                                <button class="btn btn-white border-secondary bg-white btn-md mb-2">
-                                    <i class="fas fa-sync"></i>
-                                </button>
-                                <button class="btn btn-white border-secondary bg-white btn-md mb-2">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
+                    </tr> -->
+                    
                 </tbody>
             </table>
             <div class="float-right text-right">
                 <h4>TỔNG TIỀN:</h4>
-                <h1>42.000.000</h1>
+                <h1><?php if (isset($total)) echo "$total đ"; ?></h1>
             </div>
         </div>
     </div>
@@ -140,11 +121,11 @@
     <?php include './views/common/footer.php'; ?>
 
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="../script/common.js"></script>
+    <script src="../script/shopping_cart.js"></script>
     
 </body>
 </html>

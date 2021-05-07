@@ -8,5 +8,5 @@ if (isset($_GET['action']) && $_GET['action'] == 'list') {
 }
 
 if (isset($_POST['action']) && $_POST['action'] == 'delete'){
-    
+    echo "delete api is working";
 }

@@ -16,6 +16,6 @@ class InvoiceModel{
         $this->closeTime = $data['HD_THOI_GIAN_DONG'];
         $this->status = $data['HD_TRANG_THAI'];
         $this->total = $data['HD_TONG_TIEN'];
-        $this->address = $data['HD_DIA_CHi'];
+        $this->address = $data['HD_DIA_CHI'];
     }
 }

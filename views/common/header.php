@@ -29,7 +29,24 @@
                     </div>
                 </li>
                 <li class="nav-item active">
-                    <a class="links btn btn-dark button mr-3" href="../login.php">Tài Khoản</a>
+                    <?php
+                      if(isset($user)){
+                        echo "<ul>
+                          <li class='dropdown'>
+                            <a class='links btn btn-dark button mr-3 dropdown-toggle text-white' data-toggle='dropdown'>
+                              $user->fullname
+                            </a>
+                            <ul class='dropdown-menu'>
+                              <li?><a class='nav-link' href='#'>Tài Khoản Của Tôi</a></li>
+                              <li><a class=' nav-link' href='../logout.php'>Đăng Xuất</a></li>
+                            </ul>
+                          </li>
+                        </ul>";
+                      } else{
+                        echo "<a class='links btn btn-dark button mr-3' href='../login.php'>Tài Khoản</a>";
+                      }
+                    ?>
+                    <!-- <a class="links btn btn-dark button mr-3" href="../login.php">Tài Khoản</a> -->
                 </li>
                 <li class="nav-item active">
                     <a class="cart-button d-flex justify-content-center align-content-center" href="/view-cart.php"> 
