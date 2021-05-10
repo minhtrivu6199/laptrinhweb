@@ -38,4 +38,9 @@ class BrandDAO {
         $sql = "SELECT * FROM THUONG_HIEU";
         return BrandDAO::queryAll($sql);
     }
+
+    public static function findById($id){
+        $sql = "SELECT * FROM THUONG_HIEU where TH_ID = $id";
+        return BrandDAO::queryTop($sql);
+    }
 }

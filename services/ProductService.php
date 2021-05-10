@@ -15,7 +15,9 @@ class ProductService{
         return ProductDAO::findQueryString($key);
     }
 
-    public static function findImgById($id){
-        return ProductDAO::findImgById($id);
+    public static function findBrandName($brandId){
+        return ProductDAO::findBrandName($brandId);
     }
+
+
 }

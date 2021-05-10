@@ -60,6 +60,11 @@ class ProductDAO{
         return ProductDAO::queryAll($sql);
     }
 
+    public static function findBrandName($brandId){
+        $sql = "SELECT TH_TEN FROM THUONG_HIEU TH JOIN SAN_PHAM SP ON TH.TH_ID = $brandId ";
+        return ProductDAO::queryTop($sql);
+    }
+
    
 
 }

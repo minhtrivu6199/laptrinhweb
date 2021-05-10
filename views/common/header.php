@@ -2,7 +2,8 @@
   <header class="topbar">
       <div class="container">
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-sm-12 ">
+            <p>Free shipping toàn quốc cho mọi mặt hàng</p>
             <ul class="social-network">
               <li><a class="waves-effect waves-dark" href="#"><i class="fa fa-facebook"></i></a></li>
               <li><a class="waves-effect waves-dark" href="#"><i class="fab fa-instagram"></i></a></li>

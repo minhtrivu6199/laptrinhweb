@@ -7,8 +7,6 @@ include './prehandle/requireLogin.php';
 
 
 
-
-
 $invoice = InvoiceService::findCart();
 if ($invoice != null) {
     $details = InvoiceService::getDetails($invoice->id);
@@ -18,6 +16,8 @@ if ($invoice != null) {
     }
     $total = InvoiceService::computeTotal($invoice->id);
 }
+
+
 
 
 include  './views/cart.php';
