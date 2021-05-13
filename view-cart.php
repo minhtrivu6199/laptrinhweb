@@ -12,7 +12,10 @@ if ($invoice != null) {
     $details = InvoiceService::getDetails($invoice->id);
     $products = array();
     foreach ($details as $index => $detail){
-        $products[$index] = ProductService::findById($detail->productId);
+        $temp = ProductService::findById($detail->productId);
+        $brand = BrandService::findById($temp->brandId);
+        $temp->brandName = $brand->name;
+        $products[$index] = $temp;
     }
     $total = InvoiceService::computeTotal($invoice->id);
 }

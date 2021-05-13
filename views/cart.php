@@ -35,8 +35,6 @@
                             foreach($details as $index => $detail){
                                 $product = $products[$index];
                                 $subtotal = $detail->amount * $detail->price;
-                                $id = $product->brandId;
-                                $brand = ProductService::findBrandName($id);
                                 echo "<tr>
                                 <td data-th='Product'>
                                     <div class='row'>
@@ -45,7 +43,7 @@
                                         </div>
                                         <div class='col-md-9 text-left mt-sm-2'>
                                             <h4>$product->name</h4>
-                                            <p class='font-weight-light'>$brand</p>
+                                            <p class='font-weight-light'>$product->brandName</p>
                                         </div>
                                     </div>
                                 </td>

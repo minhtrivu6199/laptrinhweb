@@ -62,7 +62,7 @@
                             if (count($images) > 1){
                                 $imgSrc1 = $images[1];
                             }
-                            echo "<div class='col-md-3 col-sm-6'>
+                            echo "<div class='col-md-3 col-sm-6 pb-5'>
                             <div class='product-grid'>
                                 <div class='product-image'>
                                     <a href='#'>
@@ -73,7 +73,7 @@
                                 </div>
                                 <div class='product-content'>
                                     <h3 class='title'><a href='#'>$sp->name</a></h3>
-                                    <div class='price'>$sp->price</div>
+                                    <div class='price'>$sp->price đ</div>
                                     <a productId='$sp->id' class='add-to-cart' href=''>Thêm Vào Giỏ</a>
                                 </div>
                             </div>

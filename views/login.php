@@ -34,19 +34,24 @@
                     <form id="login-form" class="login-show" action="" method="POST">
                         <input type="hidden" name="action" value="login">
                         <label for="login-form">Đăng Nhập</label>
-                        <input id="login-email" name="email" type="text" placeholder="Email">
-                        <input id="login-password" name="password" type="password" placeholder="Password">
+                        <input id="login-email" name="email" class="form-control" type="text" placeholder="Email">
+                        <input id="login-password" name="password" class="form-control" type="password" placeholder="Password">
                         <button type="submit" value="login">Đăng Nhập</button> 
                     </form>
-                    <form id="register-form" class="register-show" action="" method="POST">
+                    <form id="register-form" class="register-show" action="" method="POST" novalidate onsubmit="return validation()">
                         <input type="hidden" name="action" value="register">
                         <label for="register-form">Đăng Ký</label>
-                        <input id="fullname" name="fullname" type="text" placeholder="Họ Và Tên">
-                        <input id="birthday" name="birthday" type="date" placeholder="Ngày Sinh">
-                        <input id="register-email" name="email" type="text" placeholder="Email">
-                        <input id="register-password" name="password" type="password" placeholder="Password">
-                        <input type="password" placeholder="Confirm Password">
-                        <button type="submit" value="register">Đăng Ký</button>
+                        <input id="fullname" name="fullname" class="form-control mb-0" type="text" placeholder="Họ Và Tên">
+                        <span class="invalid-feedback fullname"></span>
+                        <input id="birthday" name="birthday" class="form-control mt-3" type="date" placeholder="Ngày Sinh">
+                        <span class="invalid-feedback birthday"></span>
+                        <input id="register-email" name="email" class="form-control mb-0" type="text" placeholder="Email">
+                        <span class="invalid-feedback email"></span>
+                        <input id="register-password" name="password" class="form-control mb-0" type="password" placeholder="Password">
+                        <span class="invalid-feedback password"></span>
+                        <input id = "confirmPassword" class="form-control mb-0" type="password" placeholder="Confirm Password">
+                        <span class="invalid-feedback confirmPassword"></span>
+                        <button class="mt-3" type="submit" value="register">Đăng Ký</button>
                     </form>
                 </div>
             </div>
@@ -66,6 +71,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="../script/common.js"></script>
         <script src="../script/login.js"></script>
+        <script src="../script/form-validation.js"></script>
 
         
     </body>
