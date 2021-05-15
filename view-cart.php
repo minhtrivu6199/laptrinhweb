@@ -1,6 +1,7 @@
 <?php
 include_once './models/UserModel.php';
 include_once './services/BrandService.php';
+include_once './services/ImageService.php';
 include_once './services/InvoiceService.php';
 include_once './services/ProductService.php';
 include './prehandle/requireLogin.php';
@@ -14,11 +15,14 @@ if ($invoice != null) {
     foreach ($details as $index => $detail){
         $temp = ProductService::findById($detail->productId);
         $brand = BrandService::findById($temp->brandId);
+        $image = ImageService::findById($temp->id);
+        $temp->imgLink = $image->link;
         $temp->brandName = $brand->name;
         $products[$index] = $temp;
     }
     $total = InvoiceService::computeTotal($invoice->id);
 }
+
 
 
 

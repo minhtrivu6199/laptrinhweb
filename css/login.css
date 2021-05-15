@@ -154,3 +154,11 @@ a{
     padding-bottom: 5rem;
 
 }
+
+.notification {
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    width:20rem;
+    z-index: 10;
+}

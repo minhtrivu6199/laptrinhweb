@@ -13,6 +13,16 @@
     </head>
     <body>
         <?php include './views/common/header.php';?> 
+        <?php if (isset($error_message)){
+            echo "        <div id='notificationContainer' class='notification'>
+            <div class='alert alert-danger alert-dismissible fade show mt-4 mr-4' role='alert'>
+                $error_message
+                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+            </div>
+        </div> ";
+        } ?>
         
         <div class="main">
             <div class="login-reg-panel">

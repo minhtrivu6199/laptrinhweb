@@ -27,7 +27,7 @@
                                 $subtotal = $detail->amount * $detail->price;  
                                 echo "<li class='list-group-item d-flex justify-content-between lh-condensed'>
                                 <div class='col-sm-2 col-xs-2 p-0'>
-                                    <img class='img-fluid d-none d-md-block rounded shadow ' src='../assets/img/product/asus1.jpg'>
+                                    <img class='img-fluid d-none d-md-block rounded shadow ' src='$product->imgLink'>
                                     <span class='product-thumbnail-quantity' aria-hidden='true'>$detail->amount</span>
                                 </div>
                                 <div class='col-sm-6 col-xs-6 pl-3'>

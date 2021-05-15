@@ -52,7 +52,7 @@
                 <li class="nav-item active">
                     <a class="cart-button d-flex justify-content-center align-content-center" href="/view-cart.php"> 
                         <i class="fas fa-shopping-cart cart"></i> 
-                        <span class="item-number d-inline">3</span> 
+                        <span class="item-number d-inline"><?php echo count($details); ?></span> 
                     </a> 
                 </li>
               </ul>

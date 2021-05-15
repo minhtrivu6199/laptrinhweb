@@ -18,7 +18,7 @@
         <div class="col-lg-12 col-md-12 col-12">
             <h3 class="display-5 mb-2 text-center">Giỏ Hàng</h3>
             <p class="mb-5 text-center">
-                <i class="text-info font-weight-bold">3</i> sản phẩm trong giỏ hàng của bạn</p>
+                <i class="text-info font-weight-bold"><?php echo count($details); ?></i> sản phẩm trong giỏ hàng của bạn</p>
             <table id="shoppingCart" class="table table-condensed table-responsive">
                 <thead>
                     <tr>
@@ -39,7 +39,7 @@
                                 <td data-th='Product'>
                                     <div class='row'>
                                         <div class='col-md-3 text-left'>
-                                            <img src='../assets/img/product/asus1.jpg' alt='' class='img-fluid d-none d-md-block rounded mb-2 shadow '>
+                                            <img src='$product->imgLink' alt='' class='img-fluid d-none d-md-block rounded mb-2 shadow '>
                                         </div>
                                         <div class='col-md-9 text-left mt-sm-2'>
                                             <h4>$product->name</h4>
@@ -61,7 +61,11 @@
                                 </td>
                             </tr>";
                             }
-                        } 
+                        }else{
+                            echo "<div class='container'>
+                                <div class='text'>Giỏ hàng của bạn còn trống</div>
+                            </div>";
+                        }
                     ?> 
                     <!-- <tr>
                         <td data-th="Product">
@@ -100,9 +104,11 @@
         </div>
     </div>
     <div class="row mt-4 d-flex align-items-center">
-        <div class="col-sm-6 order-md-2 text-right">
-            <a href="checkout.php" class="btn btn-primary mb-4 btn-lg pl-5 pr-5">THANH TOÁN</a>
-        </div>
+        <?php if ($total != 0){
+            echo "<div class='col-sm-6 order-md-2 text-right'>
+            <a href='checkout.php' class='btn btn-primary mb-4 btn-lg pl-5 pr-5'>THANH TOÁN</a>
+        </div>";
+        }?>
         <div class="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
             <a href="./product_list.php">
                 <i class="fas fa-arrow-left mr-2"></i>Tiếp tục mua sắm</a>

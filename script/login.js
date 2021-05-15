@@ -25,5 +25,3 @@
             $('.register-show').removeClass('show-log-panel');
         }
     });
-      
-    
