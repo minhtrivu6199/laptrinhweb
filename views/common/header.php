@@ -83,7 +83,14 @@
                   <ul class="nav flex-column">
                   <li class="nav-item">
                     <a class="nav-link active" href="./product_grid.php">Laptop</a>
-                  </li>
+                    <?php foreach ($ds_thuonghieu as $thuonghieu) {
+                                $checked = (isset($brand_code) && $thuonghieu->code == $brand_code)? 'checked': '';
+                                echo "<li class='nav-item'><a class='nav-link' href='/product_grid.php?brand=$thuonghieu->code' $checked>
+                                $thuonghieu->name
+                                </a></li>";
+                            } 
+                      ?>
+                  <!-- </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">ASUS</a>
                   </li>
@@ -101,7 +108,7 @@
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">HP</a>
-                  </li>
+                  </li> -->
                 </ul>
                 </div>
                 <div class="col-md-4">

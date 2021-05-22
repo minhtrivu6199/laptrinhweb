@@ -15,37 +15,40 @@
     <div id="notificationContainer" class="notification">
 
     </div>    
-    </div>
     <?php include './views/common/header.php';?>
-    <div class="container-fluid"> <!-- container -->
+    <div class="container-fluid"> <!-- product grid -->
         <div class="row"> <!-- row -->
             <div class="col-md-3 left pt-5">
                 <h3>Thương hiệu:</h3>
-                <ul class="list-group mb-2 ml-2">
-                    <?php
-                        foreach ($ds_thuonghieu as $thuonghieu) {
-                            echo "<li class='list-group-item'>
-                            <input type='checkbox' name='thuonghieu' value='$thuonghieu->code' id='$thuonghieu->id'>
-                            <label for='$thuonghieu->id'>$thuonghieu->name</label>
-                        </li>";
-                        } 
-                    ?>
-                    <!-- <li class="list-group-item">
-                        <input type="checkbox" name="a" id="asus">
-                        <label for="asus">ASUS</label>
-                    </li> -->
-                </ul>
+                <form action="" method="post">
+                    <ul class="list-group mb-2 ml-2">
+                        <?php
+                            foreach ($ds_thuonghieu as $thuonghieu) {
+                                $checked = (isset($brand_code) && $thuonghieu->code == $brand_code)? 'checked': '';
+                                echo "<a href='/product_grid.php?brand=$thuonghieu->code' $checked><li class='list-group-item'>
+                                $thuonghieu->name
+                            </li></a>";
+                            } 
+                        ?>
+                        <!-- <li class="list-group-item">
+                            <input type="checkbox" name="a" id="asus">
+                            <label for="asus">ASUS</label>
+                        </li> -->
+                    </ul>
+                </form>
                 <h3>Sắp xếp theo:</h3>
-                <ul class="list-group mb-2 ml-2">
-                    <li class="list-group-item">
-                        <input type="radio" name="a" id="sort1">
-                        <label for="sort1">Giá từ cao - thấp</label>
-                    </li>
-                    <li class="list-group-item">
-                        <input type="radio" name="a" id="sort2">
-                        <label for="sort2">Giá từ thấp - cao</label>
-                    </li>
-                </ul>
+                <form action="" method="post">
+                    <ul class="list-group mb-2 ml-2">
+                        <li class="list-group-item">
+                            <input type="radio" name="a" id="sort1">
+                            <label for="sort1">Giá từ cao - thấp</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input type="radio" name="a" id="sort2">
+                            <label for="sort2">Giá từ thấp - cao</label>
+                        </li>
+                    </ul>
+                </form>
             </div>
             <div class="col-md-9 right container pt-5"> <!-- col-md-9 -->
                 <h3 class="h3">Danh Sách Sản Phẩm</h3>
@@ -146,11 +149,67 @@
                     </div> -->
                     
                 </div> <!-- end row mb-3 -->
-            </div> <!-- end col-md-9 -->
+            </div> <!-- end product grid -->
             
         </div> <!-- end row -->
     </div> 
-    <!-- end container -->
+    <nav aria-label="Page navigation example" class="d-flex justify-content-center mb-3">
+        <ul class="pagination">
+            <?php
+                $disabled = ($page == 1)? 'disabled': '';
+                $prev_page = $page-1;
+                echo "<li class='page-item $disabled'>
+                    <a class='page-link' href='/index.php?page=$prev_page&limit=$limit' aria-label='Previous'>
+                        <span aria-hidden='true'>«</span>
+                        <span class='sr-only'>Previous</span>
+                    </a>
+                </li>";
+
+                if ($total_page > $NB_PAGE_SHOW) {
+                    $temp_nb_show = (int)($NB_PAGE_SHOW / 2);
+                    for ($i = 1; $i <= $temp_nb_show; $i++) {
+                        $active = ($i == $page)? 'active': '';
+                        echo "<li class='page-item $active'><a class='page-link' href='/product_grid.php?page=$i&limit=$limit'>$i</a></li>";    
+                    }
+                    if ($page > $temp_nb_show && $page <= $total_page - $temp_nb_show) {
+                        echo "<li class='page-item disabled'><a class='page-link' href='#'>...</a></li>";    
+                        $temp_mid_nb_show = (int)($temp_nb_show / 2);
+                        for ($i = $page - $temp_mid_nb_show; $i < $page ; $i++) {
+                            $active = ($i == $page)? 'active': '';
+                            echo "<li class='page-item $active'><a class='page-link' href='/product_grid.php?page=$i&limit=$limit'>$i</a></li>";    
+                        }       
+                        $active = ($i == $page)? 'active': '';
+                        echo "<li class='page-item $active'><a class='page-link' href='/product_grid.php?page=$page&limit=$limit'>$page</a></li>";    
+                        for ($i = $page + 1; $i <= $page + $temp_mid_nb_show; $i++) {
+                            $active = ($i == $page)? 'active': '';
+                            echo "<li class='page-item $active'><a class='page-link' href='/product_grid.php?page=$i&limit=$limit'>$i</a></li>";    
+                        }
+                    }
+                    echo "<li class='page-item disabled'><a class='page-link' href='#'>...</a></li>";    
+                    for ($i = $total_page - $temp_nb_show + 1; $i <= $total_page ; $i++) {
+                        $active = ($i == $page)? 'active': '';
+                        echo "<li class='page-item $active'><a class='page-link' href='/product_grid.php?page=$i&limit=$limit'>$i</a></li>";    
+                    }
+                } else {
+                    for ($i = 1; $i <= $total_page; $i++) {
+                        $active = ($i == $page)? 'active': '';
+                        echo "<li class='page-item $active'><a class='page-link' href='/product_grid.php?page=$i&limit=$limit'>$i</a></li>";    
+                    }
+                }
+            
+                
+                $disabled = ($page == $total_page)? 'disabled': '';
+                $next_page = $page+1;
+                echo "<li class='page-item $disabled'>
+                    <a class='page-link' href='/index.php?page=$next_page&limit=$limit' aria-label='Next'>
+                        <span aria-hidden='true'>»</span>
+                        <span class='sr-only'>Next</span>
+                    </a>
+                </li>";
+            ?>
+        </ul>
+    </nav>
+    
 
 
 

@@ -97,13 +97,45 @@ function showNotification(message, color) {
     ); 
 }
 
+// function requestLogin() {
+//     $.post('/api/invoice.php', {
+//         'action': 'add-to-cart',
+//     }
+//     );if ($.isEmptyObject){
+//         function addToCart(productId) {
+//             $.post( '/api/invoice.php', {
+//                 'action': 'change-amount',
+//                 'productId': productId,
+//                 'amount': 1,
+//             }, function( data ) {
+//                 showNotification('Thêm vào giỏ thành công!', 'success');
+//             });
+//         }
+//     }else{
+//         function Redirect(){
+//             window.location="/login.php";
+//         }
+//     }
+// }
+
 function addToCart(productId) {
     $.post( '/api/invoice.php', {
         'action': 'change-amount',
         'productId': productId,
         'amount': 1,
     }, function( data ) {
-        showNotification('Thêm vào giỏ thành công!', 'success');
+        console.log(data);// data response from server
+        // Cast json to js object 
+        let response = JSON.parse(data);
+        if (response.errorCode == 1) {
+            // Require login
+            window.location.href = '/login.php';
+        } else if (response.errorCode == 0) {
+            // success
+            showNotification('Thêm vào giỏ thành công!', 'success');
+        } else {
+            console.log('Error: unknown error');
+        }
     });
 }
 
@@ -113,3 +145,5 @@ $(function() {
         addToCart($(this).attr('productId'));
     }) 
 })
+
+
