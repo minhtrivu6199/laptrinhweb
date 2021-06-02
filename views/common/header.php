@@ -38,7 +38,7 @@
                               $user->fullname
                             </a>
                             <ul class='dropdown-menu'>
-                              <li?><a class='nav-link' href='#'>Tài Khoản Của Tôi</a></li>
+                              <li?><a class='nav-link' href='../myaccount.php'>Tài Khoản Của Tôi</a></li>
                               <li><a class=' nav-link' href='../logout.php'>Đăng Xuất</a></li>
                             </ul>
                           </li>
@@ -52,7 +52,7 @@
                 <li class="nav-item active">
                     <a class="cart-button d-flex justify-content-center align-content-center" href="/view-cart.php"> 
                         <i class="fas fa-shopping-cart cart"></i> 
-                        <span class="item-number d-inline"><?php echo count($details); ?></span> 
+                        <span class="item-number d-inline"></span> 
                     </a> 
                 </li>
               </ul>

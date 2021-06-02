@@ -97,4 +97,15 @@ class UserDAO{
         }
         return FALSE;
     }
+
+    public static function changePassword($id, $email, $password, $newpass){
+        global $conn;
+        $sql = "UPDATE NGUOI_DUNG SET ND_PASSWORD='$newpass' where ND_EMAIL = '$email' AND ND_PASSWORD = '$password'";
+        $result = $conn->query($sql);
+        if ($result == true){
+            return UserDAO::findById($id);
+        }else{
+            return NULL;
+        }
+    }
 }

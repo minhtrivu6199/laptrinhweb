@@ -11,4 +11,8 @@ class UserService{
     public static function register($user){
         return UserDAO::save($user);
     }
+
+    public  static function changePassword($id, $username, $password, $newpass){
+        return UserDAO::changePassword($id, $username, $password, $newpass);
+    }
 }

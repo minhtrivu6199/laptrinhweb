@@ -110,7 +110,7 @@
         </div>";
         }?>
         <div class="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
-            <a href="./product_list.php">
+            <a href="./product_grid.php">
                 <i class="fas fa-arrow-left mr-2"></i>Tiếp tục mua sắm</a>
         </div>
     </div>
